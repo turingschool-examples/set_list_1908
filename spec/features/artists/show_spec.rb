@@ -1,8 +1,4 @@
 require 'rails_helper'
-# As a user
-# When I visit an artists show page
-# I see that artists name
-# As well as a list of all of their songs(including the songs title, length, and play count)
 
 RSpec.describe 'Artist show page' do
   it 'lists all artists' do
@@ -19,5 +15,13 @@ RSpec.describe 'Artist show page' do
     expect(page).to have_content("Billy Jean")
     expect(page).to have_content("Play Count: 8765")
     expect(page).to have_content("Length: 97")
+  end
+
+  it "has a link to add a new song" do
+    michael_jackson = Artist.create(name: "Michael Jackson")
+
+    visit "/artists/#{michael_jackson.id}"
+
+    expect(page).to have_link("New Song")
   end
 end
