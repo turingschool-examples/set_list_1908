@@ -19,5 +19,3 @@ RSpec.describe "New Artist" do
     end
   end
 end
-
-
