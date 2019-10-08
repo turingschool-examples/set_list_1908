@@ -9,12 +9,16 @@ RSpec.describe 'Artist show page' do
     visit "/artists/#{michael_jackson.id}"
 
     expect(page).to have_content("Michael Jackson")
-    expect(page).to have_content(thriller.title)
-    expect(page).to have_content("Play Count: 1234543")
-    expect(page).to have_content("Length: 68")
-    expect(page).to have_content("Billy Jean")
-    expect(page).to have_content("Play Count: 8765")
-    expect(page).to have_content("Length: 97")
+    within "#song-#{thriller.id}" do
+      expect(page).to have_content(thriller.title)
+      expect(page).to have_content("Play Count: 1234543")
+      expect(page).to have_content("Length: 68")
+    end
+    within "#song-#{billy_jean.id}" do
+      expect(page).to have_content("Billy Jean")
+      expect(page).to have_content("Play Count: 8765")
+      expect(page).to have_content("Length: 97")
+    end
   end
 
   it "has a link to add a new song" do
