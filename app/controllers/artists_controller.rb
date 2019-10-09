@@ -12,8 +12,13 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    Artist.create(artist_params)
-    redirect_to '/artists'
+    artist = Artist.create(artist_params)
+    if artist.save
+        redirect_to '/artists'
+    else
+      flash.now[:error] = "Artist not created, fill in all fields."
+      render :new
+    end
   end
 
   def destroy
@@ -26,11 +31,14 @@ class ArtistsController < ApplicationController
   end
 
   def update
-    artist = Artist.find(params[:id])
-
-    artist.update(artist_params)
-
-    redirect_to "/artists"
+    @artist = Artist.find(params[:id])
+    @artist.update(artist_params)
+    if @artist.save
+      redirect_to "/artists"
+    else
+      flash[:error] = "Artist not updated, fill in all fields."
+      render :edit
+    end
   end
 
   private
