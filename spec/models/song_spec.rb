@@ -11,6 +11,8 @@ describe Song, type: :model do
   #relationships
   describe "relationships" do
     it {should belong_to :artist}
+    it {should have_many :playlist_songs}
+    it {should have_many(:playlists).through(:playlist_songs)}
   end
 
   describe "class methods" do
@@ -31,7 +33,7 @@ describe Song, type: :model do
                            play_count:  6)
 
       carly_rae_songs = [song_1,song_2]
-      
+
       expect(Song.average_play_count).to eq(4)
     end
   end
