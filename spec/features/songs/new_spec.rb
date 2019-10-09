@@ -20,7 +20,7 @@ RSpec.describe 'Add New Song' do
 
     expect(current_path).to eq("/artists/#{michael_jackson.id}")
     expect(page).to have_content("Billy Jean")
-    expect(page).to have_content("Play count: 5678654")
+    expect(page).to have_content("Play Count: 5678654")
     expect(page).to have_content("Length: 600")
   end
 end
