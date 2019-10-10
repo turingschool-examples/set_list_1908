@@ -12,6 +12,7 @@
     <% flash.each do |type,message|%>
       <p><%= message %></p>
     <% end %>
+    <p>Cart: <%= cart.total_count %></p>
     <%= yield %>
   </body>
 </html>
