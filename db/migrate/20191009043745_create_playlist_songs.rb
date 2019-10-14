@@ -4,7 +4,6 @@ class CreatePlaylistSongs < ActiveRecord::Migration[5.1]
       t.references :song, foreign_key: true
       t.references :playlist, foreign_key: true
 
-      t.timestamps
     end
   end
 end
