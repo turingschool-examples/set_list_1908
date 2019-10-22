@@ -1,7 +1,1 @@
-<%= form_tag "/artists/#{@artist.id}", method: :patch do %>
-  <%= label_tag :name %>
-  <%= text_field_tag :name %>
-
-  <%= submit_tag 'Update Artist' %>
-<% end %>
-
+<%= render partial: "partials/artist_form_template", locals: {path: "/artists/#{@artist.id}", method: :patch, button: 'Update Artist', page: "artist-edit"} %>
