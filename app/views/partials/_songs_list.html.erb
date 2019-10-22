@@ -1,0 +1,10 @@
+<% songs.each do |song| %>
+  <section id = "song-<%=song.id%>">
+    <h3><%= song.title %></h3>
+    <p>Play Count: <%= song.play_count %></p>
+    <p>Length: <%= song.length %></p>
+    <% if current_page?("/songs") %>
+      <%= button_to "Add Song", "/cart/#{song.id}", method: :patch %>
+    <% end %>
+  </section>
+<% end %>
