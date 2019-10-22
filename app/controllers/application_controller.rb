@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def cart
     @cart ||= Cart.new(session[:cart])
   end
+
+  def current_user
+
+  end
 end
