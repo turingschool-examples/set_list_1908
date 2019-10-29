@@ -1,1 +1,1 @@
-<%= render partial: "partials/artist_form_template", locals: {path: "/artists/#{@artist.id}", method: :patch, button: 'Update Artist', page: "artist-edit"} %>
+<%= render partial: "partials/artist_form_template", locals: {button: 'Update Artist', url: artists_path(@artist)} %>

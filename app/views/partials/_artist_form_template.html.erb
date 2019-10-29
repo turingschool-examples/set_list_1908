@@ -1,6 +1,6 @@
-<%= form_tag path, method: method do %>
-  <%= label_tag :name %>
-  <%= text_field_tag :name %>
+<%= form_for @artist, url: url do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-  <%= submit_tag button %>
+  <%= f.submit button %>
 <% end %>
