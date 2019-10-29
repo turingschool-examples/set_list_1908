@@ -5,6 +5,7 @@ class ArtistsController < ApplicationController
   end
 
   def new
+    @artist = Artist.new
   end
 
   def show
@@ -17,6 +18,7 @@ class ArtistsController < ApplicationController
         redirect_to '/artists'
     else
       flash.now[:error] = "Artist not created, fill in all fields."
+      @artist = Artist.new
       render :new
     end
   end
@@ -37,12 +39,13 @@ class ArtistsController < ApplicationController
       redirect_to "/artists"
     else
       flash[:error] = "Artist not updated, fill in all fields."
+      @artist = Artist.find(params[:id])
       render :edit
     end
   end
 
   private
     def artist_params
-      params.permit(:name)
+      params.require(:artist).permit(:name)
     end
 end
